@@ -52,19 +52,6 @@ Users can enter either a **URL** or **plain text** to receive a **probabilistic 
 
 ---
 
-## **📁 Repo Structure (Coming Soon)**
-
-```
-root/
-├── backend/                  # FastAPI app and ML logic
-├── frontend/                 # React app
-├── docs/                     # Exported Notion docs (Markdown)
-├── public/                   # Images & mockups
-└── README.md                 # You're here
-```
-
----
-
 ## **📖 Documentation**
 
 🧠 Full PM + Engineering Notion Docs:
@@ -75,11 +62,9 @@ root/
 - [Model & Dataset Plan](https://www.notion.so/Reamde-md-1fa1a6d004e8801b8855d6f68c8004a6?pvs=21)
 - [Testing Strategy](https://www.notion.so/Reamde-md-1fa1a6d004e8801b8855d6f68c8004a6?pvs=21)
 
-*(Coming soon: export to /docs/)*
-
 ---
 
-## **💡 Why I Built This**
+## **💡 Why I am Building This**
 
 I created this tool to:
 
@@ -94,9 +79,10 @@ This project forms part of my transition into **AI product management**, while k
 
 ## **📬 Contact & Socials**
 
-- [GitHub](https://github.com/yourusername)
-- [LinkedIn](https://linkedin.com/in/yourprofile)
-- [Email](mailto:youremail@example.com)
+- [GitHub](https://github.com/rohanr07)
+- [LinkedIn](https://www.linkedin.com/in/rohanrenganathan/)
+- [Website](https://v0-rohan-website.vercel.app)
+- [Blog](https://rq7.hashnode.dev)
 
 ---
 
