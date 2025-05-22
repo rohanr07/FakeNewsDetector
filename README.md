@@ -86,5 +86,5 @@ This project forms part of my transition into **AI product management**, while k
 
 ---
 
-> ⚠️ Disclaimer: This tool does not perform formal fact-checking and should not be used as a sole source for news decisions. Please refer to trusted outlets for final judgment.
+> ⚠️ Disclaimer: This tool does not perform formal fact checking and should not be used as a sole source for news decisions. Please refer to trusted outlets for final judgment.
 >
