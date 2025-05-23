@@ -1,17 +1,19 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
 from model import analyze_text
 
 app = FastAPI()
 
-@app.get("/")
-def read_root():
-    return {"message": "Fake News Detector Backend is running"}
+class AnalyzeRequest(BaseModel):
+    text: str
 
 @app.post("/analyze")
-def analyze(request: Request):
-    # For now, dummy output
-    return {"score": 0.83, "label": "Likely Fake", "explanation": "Dummy logic"}
+async def analyze(request: AnalyzeRequest):
+    if not request.text or len(request.text.strip()) < 10:
+        raise HTTPException(status_code=400, detail="Text is too short. Must be at least 10 characters.")
+    return analyze_text(request.text)
 
 
-
-
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
