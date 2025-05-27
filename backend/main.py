@@ -1,7 +1,7 @@
 import re
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from model import analyze_text
+from backend.model import analyze_text
 from typing import List
 
 app = FastAPI()
@@ -17,15 +17,21 @@ def sanitize_input(text: str):
         raise HTTPException(status_code=400, detail="Text too short. Must be at least 10 characters.")
     return cleaned
 
+@app.get("/")
+def root():
+    return {"message": "Welcome to the Fake News Detection API"}
+
 @app.post("/analyze")
 async def analyze(request: AnalyzeRequest):
     clean_text = sanitize_input(request.text)
     return analyze_text(clean_text)
 
+# Health check endpoint
 @app.get("/health")
 def health_check():
     return {"status": "ok"}
 
+# Batch processing endpoint
 class BatchRequest(BaseModel):
     texts: List[str]
 
