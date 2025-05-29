@@ -45,7 +45,7 @@ Users can enter either a **URL** or **plain text** to receive a **probabilistic 
 | --- | --- |
 | Frontend | React (Vite or Next.js), CSS |
 | Backend | FastAPI |
-| ML Model | DistilBERT via HuggingFace |
+| ML Model | bert-tiny-finetuned-fake-news-detection (via HuggingFace) |
 | Data APIs | NewsAPI, MediaBiasFactCheck |
 | Deployment | Vercel (Frontend), Render (Backend) |
 | IDE | Visual Studio Code (Mac + Win) |
@@ -64,16 +64,10 @@ Users can enter either a **URL** or **plain text** to receive a **probabilistic 
 
 ---
 
-## **💡 Why I am Building This**
+## **💡 Training Data
 
-I created this tool to:
-
-- Address a relevant, global pain point
-- Demonstrate cross-functional product development
-- Combine AI, UX, and responsible design principles
-- Showcase both my **product thinking** and **engineering execution**
-
-This project forms part of my transition into **AI product management**, while keeping my software fundamentals sharp.
+- Bulk evaluation now supports multiprocessing for rapid batch scoring across 45K+ samples
+- Used True.csv and Fake.csv from Kaggle
 
 ---
 
