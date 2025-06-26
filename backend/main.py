@@ -3,8 +3,17 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from backend.model import analyze_text
 from typing import List
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # Only allow your frontend during development
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class AnalyzeRequest(BaseModel):
     text: str
