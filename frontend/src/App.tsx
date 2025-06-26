@@ -1,35 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import Home from "./pages/Home";
+import FAQ from "./pages/FAQ";
+import About from "./pages/About";
+import Feedback from "./pages/Feedback";
+import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
+  // Detect system preference for dark mode
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const [mode, setMode] = React.useState<"light" | "dark">(
+    prefersDarkMode ? "dark" : "light"
+  );
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode,
+        },
+      }),
+    [mode]
+  );
+
+  const toggleTheme = () => {
+    setMode((prev) => (prev === "light" ? "dark" : "light"));
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <NavBar toggleTheme={toggleTheme} mode={mode} />
+        {/* Add top margin to clear fixed NavBar (default AppBar height is 64px) */}
+        <div style={{ marginTop: 72, padding: 24 }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/feedback" element={<Feedback />} />
+          </Routes>
+        </div>
+      </Router>
+    </ThemeProvider>
+  );
+};
 
-export default App
+export default App;
