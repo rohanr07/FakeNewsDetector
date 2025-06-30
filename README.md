@@ -52,6 +52,30 @@ Users can enter either a **URL** or **plain text** to receive a **probabilistic 
 
 ---
 
+## Running the App Locally
+
+You need to run both the frontend (React) and backend (FastAPI) servers for development.
+
+### **Mac/Linux**
+
+From the `frontend` directory, run:
+```bash
+npm run dev:all:mac
+```
+
+### **Windows**
+
+From the `frontend` directory, run:
+```bash
+npm run dev:all:win
+```
+
+> **Note:**  
+> - The `dev:all:mac` and `dev:all:win` scripts are defined in `frontend/package.json`.
+> - Make sure your Python virtual environment is set up (`.venv`), and all dependencies are installed.
+
+---
+
 ## **📖 Documentation**
 
 🧠 Full PM + Engineering Notion Docs:
